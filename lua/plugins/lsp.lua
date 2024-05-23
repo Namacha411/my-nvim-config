@@ -103,7 +103,7 @@ return {
         end, 100)
       end)
       local function ensure_installed()
-        for _, tool in ipairs(opts.ensure_installed) do
+        for _, tool in ipairs(opts.ensure_installed or {}) do
           local p = mr.get_package(tool)
           if not p:is_installed() then
             p:install()

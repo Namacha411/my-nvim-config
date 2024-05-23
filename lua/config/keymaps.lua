@@ -42,17 +42,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', '<space>wl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, { desc = "現在のLSPセッションに登録されているワークスペースフォルダを表示", buffer = buf })
-    vim.keymap.set('n', '<space>D', vim.lsp.buf.type_definition, { desc = "型定義へ移動", buffer = buf })
-    vim.keymap.set('n', '<space>rn', vim.lsp.buf.rename, { desc = "シンボルの名前を変更", buffer = buf })
+    vim.keymap.set('n', '<space>cD', vim.lsp.buf.type_definition, { desc = "型定義へ移動", buffer = buf })
+    vim.keymap.set('n', '<space>cr', vim.lsp.buf.rename, { desc = "シンボルの名前を変更", buffer = buf })
     vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { desc = "コードアクション", buffer = buf })
-    vim.keymap.set('n', 'gr', vim.lsp.buf.references, { desc = "参照箇所を検索", buffer = buf })
-    vim.keymap.set('n', '<space>f', function()
+    vim.keymap.set('n', '<space>cf', function()
       vim.lsp.buf.format { async = true }
     end, { desc = "バッファをフォーマット", buffer = buf })
   end,
 })
 
--- telescope
+-- telescope builtin action
 local builtin = require('telescope.builtin')
 map('n', '<leader>ff', builtin.find_files, { desc = "ファイル検索" })
 map('n', '<leader>fg', builtin.live_grep, { desc = "テキスト検索" })
@@ -63,3 +62,5 @@ map('n', '<leader>fd', builtin.diagnostics, { desc = "診断情報の検索" })
 map('n', '<leader>fm', builtin.marks, { desc = "マークの検索" })
 map('n', '<leader>fk', builtin.keymaps, { desc = "キーマップの検索" })
 map('n', '<leader>fc', builtin.commands, { desc = "コマンドの検索" })
+map('n', '<leader>fs', builtin.treesitter, { desc = "変数、関数の検索" })
+map('n', '<leader>fr', builtin.lsp_references, { desc = "参照箇所を検索" })

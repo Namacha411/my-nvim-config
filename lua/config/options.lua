@@ -58,8 +58,6 @@ opt.backup = false
 opt.autoread = true
 opt.hidden = true
 
-if vim.fn.has("nvim-0.10") == 1 then
-  opt.smoothscroll = true
-end
+opt.smoothscroll = true
 
 vim.cmd.colorscheme("tokyonight")

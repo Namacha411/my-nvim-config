@@ -5,7 +5,6 @@ return {
     "BufNewFile",
     "BufWritePre",
   },
-  config = function ()
-    require('gitsigns').setup()
-  end,
+  main = "gitsigns",
+  opts = {},
 }
