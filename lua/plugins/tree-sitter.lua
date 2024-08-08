@@ -10,6 +10,17 @@ return {
     },
     dependencies = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
+    },
+    opts_extend = { "ensure_installed", },
+    opts = {
+      highlight = { enable = true, },
+      indent = { enable = true, },
+      ensure_installed = {
+        -- markview.nvim
+        "html",
+        "markdown",
+        "markdown_inline",
+      }
     }
   },
   {
