@@ -12,7 +12,9 @@ map("n", "<C-j>", "<C-w>j", { desc = "Go to lower window", remap = true })
 map("n", "<C-k>", "<C-w>k", { desc = "Go to upper window", remap = true })
 map("n", "<C-l>", "<C-w>l", { desc = "Go to right window", remap = true })
 
-map("n", "<ESC>", ":nohlsearch<CR>")
+map("n", "<ESC>", ":nohlsearch<CR>", { desc = "検索のハイライトをクリア", remap = true })
+
+map("t", "<ESC>", "<C-\\><C-N>", { desc = "ターミナルモードからノーマルモードに戻る", remap = true })
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions

@@ -61,3 +61,7 @@ opt.hidden = true
 opt.smoothscroll = true
 
 vim.cmd.colorscheme("tokyonight")
+
+if vim.fn.has("win64") then
+  opt.shell = "pwsh -NoLogo"
+end
