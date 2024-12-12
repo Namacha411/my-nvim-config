@@ -62,11 +62,11 @@ opt.smoothscroll = true
 
 vim.cmd.colorscheme("tokyonight")
 
-if vim.fn.has("win32") and not vim.fn.has("wsl") then
-  opt.shell = "pwsh -NoLogo"
+if vim.fn.has("win32") == 1 then
+  opt.shell = "pwsh.exe -NoLogo"
 end
 
-if vim.fn.has("wsl") then
+if vim.fn.has("wsl") == 1 then
   vim.g.clipboard = {
     name = 'WslClipboard',
     copy = {
