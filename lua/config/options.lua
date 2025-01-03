@@ -52,6 +52,7 @@ opt.fillchars = {
   diff = "╱",
   eob = " ",
 }
+opt.list = true
 
 opt.swapfile = false
 opt.backup = false
