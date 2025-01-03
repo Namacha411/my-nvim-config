@@ -6,7 +6,6 @@ return {
       "BufReadPost",
       "BufNewFile",
       "BufWritePre",
-      "VeryLazy",
     },
     dependencies = {
       { "nvim-treesitter/nvim-treesitter-textobjects" },
@@ -21,7 +20,10 @@ return {
         "markdown",
         "markdown_inline",
       }
-    }
+    },
+    config = function (_, opts)
+      require("nvim-treesitter.configs").setup(opts)
+    end
   },
   {
     "nvim-treesitter/nvim-treesitter-context",
