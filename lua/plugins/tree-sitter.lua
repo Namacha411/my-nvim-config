@@ -21,7 +21,7 @@ return {
         "markdown_inline",
       }
     },
-    config = function (_, opts)
+    config = function(_, opts)
       require("nvim-treesitter.configs").setup(opts)
     end
   },
@@ -31,6 +31,11 @@ return {
       "BufReadPost",
       "BufNewFile",
       "BufWritePre",
-    }
+    },
+    opts = {
+      max_lines = 1,
+      multiline_threshold = 1,
+      mode = "topline",
+    },
   }
 }
