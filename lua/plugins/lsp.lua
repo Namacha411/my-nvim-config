@@ -13,8 +13,6 @@ return {
     },
     dependencies = {
       "neovim/nvim-lspconfig",
-      "mason-org/mason.nvim",
-      'saghen/blink.cmp',
     },
     config = true,
   },
