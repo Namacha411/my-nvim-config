@@ -1,33 +1,21 @@
 return {
-  -- lspconfig
   {
-    "neovim/nvim-lspconfig",
+    "mason-org/mason.nvim",
+    build = ":MasonUpdate",
+    cmd = { "Mason", "MasonUpdate", "MasonLog", "MasonInstall", "MasonUninstall", "MasonUninstallAll" },
+    config = true,
+  },
+  {
+    "mason-org/mason-lspconfig.nvim",
     event = {
       "BufReadPost",
       "BufNewFile",
-      "BufWritePre",
     },
     dependencies = {
-      -- mason
-      "williamboman/mason.nvim",
-      "williamboman/mason-lspconfig.nvim",
-      -- cmp
+      "neovim/nvim-lspconfig",
+      "mason-org/mason.nvim",
       'saghen/blink.cmp',
     },
-    config = function(_, opts)
-      local mason = require("mason")
-      local mason_lspconfig = require("mason-lspconfig")
-      local lspconfig = require('lspconfig')
-
-      mason.setup()
-      mason_lspconfig.setup()
-      mason_lspconfig.setup_handlers({
-        function(server)
-          lspconfig[server].setup({
-            capabilities = require('blink.cmp').get_lsp_capabilities({})
-          })
-        end
-      })
-    end,
+    config = true,
   },
 }
