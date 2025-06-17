@@ -47,6 +47,7 @@ opt.sessionoptions = {    -- https://neovim.io/doc/user/options.html#'sessionopt
   -- "slash",
   -- "unix",
 }
+opt.shadafile = 'NONE'
 opt.shiftround = true    -- Round indent
 opt.shiftwidth = 2       -- Size of an indent
 opt.shortmess:append({ W = true, I = true, c = true, C = true })
