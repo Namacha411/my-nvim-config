@@ -7,10 +7,5 @@ return {
     options = {
       globalstatus = true
     },
-    sections = {
-      lualine_x = {
-        require("ccusage").get_lualine_component(),
-      }
-    }
   },
 }
