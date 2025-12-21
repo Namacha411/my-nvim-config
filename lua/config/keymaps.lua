@@ -18,10 +18,10 @@ map("t", "<C-\\>", "<C-\\><C-N>", { desc = "ターミナルモードからノー
 
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
-map('n', '<space>e', vim.diagnostic.open_float, { desc = "診断情報をフロートウィンドウで表示" })
+map('n', '<leader>e', vim.diagnostic.open_float, { desc = "診断情報をフロートウィンドウで表示" })
 map('n', '[d', vim.diagnostic.goto_prev, { desc = "前の診断へ移動" })
 map('n', ']d', vim.diagnostic.goto_next, { desc = "次の診断へ移動" })
-map('n', '<space>q', vim.diagnostic.setloclist, { desc = "診断をロケーションリストに設定" })
+map('n', '<leader>q', vim.diagnostic.setloclist, { desc = "診断をロケーションリストに設定" })
 
 -- Use LspAttach autocommand to only map the following keys
 -- after the language server attaches to the current buffer
@@ -39,15 +39,15 @@ vim.api.nvim_create_autocmd('LspAttach', {
     vim.keymap.set('n', 'K', vim.lsp.buf.hover, { desc = "ホバー情報を表示", buffer = buf })
     vim.keymap.set('n', 'gi', vim.lsp.buf.implementation, { desc = "実装へ移動", buffer = buf })
     vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, { desc = "シグネチャヘルプを表示", buffer = buf })
-    vim.keymap.set('n', '<space>wa', vim.lsp.buf.add_workspace_folder, { desc = "ワークスペースフォルダを追加", buffer = buf })
-    vim.keymap.set('n', '<space>wr', vim.lsp.buf.remove_workspace_folder, { desc = "ワークスペースフォルダを削除", buffer = buf })
-    vim.keymap.set('n', '<space>wl', function()
+    vim.keymap.set('n', '<leader>wa', vim.lsp.buf.add_workspace_folder, { desc = "ワークスペースフォルダを追加", buffer = buf })
+    vim.keymap.set('n', '<leader>wr', vim.lsp.buf.remove_workspace_folder, { desc = "ワークスペースフォルダを削除", buffer = buf })
+    vim.keymap.set('n', '<leader>wl', function()
       print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
     end, { desc = "現在のLSPセッションに登録されているワークスペースフォルダを表示", buffer = buf })
-    vim.keymap.set('n', '<space>cD', vim.lsp.buf.type_definition, { desc = "型定義へ移動", buffer = buf })
-    vim.keymap.set('n', '<space>cr', vim.lsp.buf.rename, { desc = "シンボルの名前を変更", buffer = buf })
-    vim.keymap.set({ 'n', 'v' }, '<space>ca', vim.lsp.buf.code_action, { desc = "コードアクション", buffer = buf })
-    vim.keymap.set('n', '<space>cf', function()
+    vim.keymap.set('n', '<leader>cD', vim.lsp.buf.type_definition, { desc = "型定義へ移動", buffer = buf })
+    vim.keymap.set('n', '<leader>cr', vim.lsp.buf.rename, { desc = "シンボルの名前を変更", buffer = buf })
+    vim.keymap.set({ 'n', 'v' }, '<leader>ca', vim.lsp.buf.code_action, { desc = "コードアクション", buffer = buf })
+    vim.keymap.set('n', '<leader>cf', function()
       vim.lsp.buf.format { async = true }
     end, { desc = "バッファをフォーマット", buffer = buf })
   end,
@@ -66,3 +66,5 @@ map('n', '<leader>fk', builtin.keymaps, { desc = "キーマップの検索" })
 map('n', '<leader>fc', builtin.commands, { desc = "コマンドの検索" })
 map('n', '<leader>fs', builtin.treesitter, { desc = "変数、関数の検索" })
 map('n', '<leader>fr', builtin.lsp_references, { desc = "参照箇所を検索" })
+
+map('n', '<leader>o', ":Oil<CR>", { desc = "ファイルエクスプローラー" })
