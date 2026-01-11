@@ -53,19 +53,16 @@ vim.api.nvim_create_autocmd('LspAttach', {
   end,
 })
 
--- telescope builtin action
-local builtin = require('telescope.builtin')
-map('n', '<leader>ff', builtin.find_files, { desc = "ファイル検索" })
-map('n', '<leader>fg', builtin.live_grep, { desc = "テキスト検索" })
-map('n', '<leader>fb', builtin.buffers, { desc = "バッファ一覧" })
-map('n', '<leader>fh', builtin.help_tags, { desc = "ヘルプタグ検索" })
-map('n', '<leader>fo', ":Telescope aerial<CR>", { desc = "アウトライン表示" })
-map('n', '<leader>fd', builtin.diagnostics, { desc = "診断情報の検索" })
-map('n', '<leader>fm', builtin.marks, { desc = "マークの検索" })
-map('n', '<leader>fk', builtin.keymaps, { desc = "キーマップの検索" })
-map('n', '<leader>fc', builtin.commands, { desc = "コマンドの検索" })
-map('n', '<leader>fs', builtin.treesitter, { desc = "変数、関数の検索" })
-map('n', '<leader>fr', builtin.lsp_references, { desc = "参照箇所を検索" })
+-- fzf-lua builtin action
+local fzf = require('fzf-lua')
+map('n', '<leader>ff', fzf.files, { desc = "ファイル検索" })
+map('n', '<leader>fg', fzf.live_grep, { desc = "テキスト検索" })
+map('n', '<leader>fb', fzf.buffers, { desc = "バッファ一覧" })
+map('n', '<leader>fh', fzf.helptags, { desc = "ヘルプタグ検索" })
+map('n', '<leader>fo', fzf.treesitter, { desc = "アウトライン表示" })
+map('n', '<leader>fd', fzf.diagnostics_document, { desc = "診断情報の検索" })
+map('n', '<leader>fm', fzf.marks, { desc = "マークの検索" })
+map('n', '<leader>fc', fzf.commands, { desc = "コマンドの検索" })
 
 map('n', '<leader>o', ":Oil<CR>", { desc = "ファイルエクスプローラー" })
 
