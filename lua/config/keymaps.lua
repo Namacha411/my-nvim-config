@@ -68,3 +68,22 @@ map('n', '<leader>fs', builtin.treesitter, { desc = "変数、関数の検索" }
 map('n', '<leader>fr', builtin.lsp_references, { desc = "参照箇所を検索" })
 
 map('n', '<leader>o', ":Oil<CR>", { desc = "ファイルエクスプローラー" })
+
+vim.keymap.set("n", "<leader>s", function()
+  local function get_session_path()
+    local session_base = vim.fn.stdpath('cache') .. '/sessions'
+    local initial_cwd = vim.fn.getcwd()
+    local project_name = initial_cwd:gsub('[/\\:]', '_'):gsub('^_+', '')
+    local session_dir = session_base .. '/' .. project_name
+    vim.fn.mkdir(session_dir, 'p')
+    return session_dir .. '/session.vim'
+  end
+
+  local session_path = get_session_path()
+  if vim.fn.filereadable(session_path) == 1 then
+    vim.cmd('%bdelete')
+    vim.cmd('silent! source ' .. vim.fn.fnameescape(session_path))
+  else
+    vim.notify('No Session found: ' .. session_path, vim.log.levels.WARN)
+  end
+end, { noremap = true, desc = "セッションの復帰" })
