@@ -1,3 +1,4 @@
+vim.loader.enable()
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
   vim.fn.system({
@@ -11,6 +12,7 @@ if not vim.loop.fs_stat(lazypath) then
 end
 vim.opt.rtp:prepend(lazypath)
 
+vim.env.LANG = "en_US.UTF-8"
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
@@ -29,14 +31,14 @@ local opts = {
     rtp = {
       ---@type string[] list any plugins you want to disable here
       disabled_plugins = {
-        -- "gzip",
+        "gzip",
         -- "matchit",
         -- "matchparen",
         "netrwPlugin",
-        -- "tarPlugin",
-        -- "tohtml",
-        -- "tutor",
-        -- "zipPlugin",
+        "tarPlugin",
+        "tohtml",
+        "tutor",
+        "zipPlugin",
       },
     },
   },

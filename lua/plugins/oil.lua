@@ -1,8 +1,7 @@
 return {
   'stevearc/oil.nvim',
   main = "oil",
-  lazy = false,
-  priority = 999,
+  event = "VimEnter",
   opts = {
     -- Id is automatically added at the beginning, and name at the end
     -- See :help oil-columns

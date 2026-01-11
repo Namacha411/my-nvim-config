@@ -54,15 +54,14 @@ vim.api.nvim_create_autocmd('LspAttach', {
 })
 
 -- fzf-lua builtin action
-local fzf = require('fzf-lua')
-map('n', '<leader>ff', fzf.files, { desc = "ファイル検索" })
-map('n', '<leader>fg', fzf.live_grep, { desc = "テキスト検索" })
-map('n', '<leader>fb', fzf.buffers, { desc = "バッファ一覧" })
-map('n', '<leader>fh', fzf.helptags, { desc = "ヘルプタグ検索" })
-map('n', '<leader>fo', fzf.treesitter, { desc = "アウトライン表示" })
-map('n', '<leader>fd', fzf.diagnostics_document, { desc = "診断情報の検索" })
-map('n', '<leader>fm', fzf.marks, { desc = "マークの検索" })
-map('n', '<leader>fc', fzf.commands, { desc = "コマンドの検索" })
+map('n', '<leader>ff', function() require('fzf-lua').files() end, { desc = "ファイル検索" })
+map('n', '<leader>fg', function() require('fzf-lua').live_grep() end, { desc = "テキスト検索" })
+map('n', '<leader>fb', function() require('fzf-lua').buffers() end, { desc = "バッファ一覧" })
+map('n', '<leader>fh', function() require('fzf-lua').helptags() end, { desc = "ヘルプタグ検索" })
+map('n', '<leader>fo', function() require('fzf-lua').treesitter() end, { desc = "アウトライン表示" })
+map('n', '<leader>fd', function() require('fzf-lua').diagnostics_document() end, { desc = "診断情報の検索" })
+map('n', '<leader>fm', function() require('fzf-lua').marks() end, { desc = "マークの検索" })
+map('n', '<leader>fc', function() require('fzf-lua').commands() end, { desc = "コマンドの検索" })
 
 map('n', '<leader>o', ":Oil<CR>", { desc = "ファイルエクスプローラー" })
 
