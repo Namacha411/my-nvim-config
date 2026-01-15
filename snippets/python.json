@@ -1,0 +1,7 @@
+{
+  "Ignore type": {
+    "prefix": "ingore",
+    "body": "# type: ignore",
+    "description": "ignore type check"
+  }
+}
